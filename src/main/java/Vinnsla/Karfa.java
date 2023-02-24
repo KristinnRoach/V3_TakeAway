@@ -20,7 +20,7 @@ public class Karfa extends Matsedill {
     private final IntegerProperty heildarVerd = new SimpleIntegerProperty();
     // CONSTRUCTOR
     public Karfa(){
-        veitingaListi.addListener(ListChangeListener<? super Veiting >) c -> {
+        matsedillList.addListener(ListChangeListener<? super Veiting >) c -> {
             while (c.next()) {
                 if (c.wasAdded()) {
                     heildarverd.set(heildarVerd.get() + c.getAddedSubList().gert(0).getVerd());
@@ -40,6 +40,9 @@ public class Karfa extends Matsedill {
     }
 }
     // METHODS
+
+
+
 
     public static void main(String[] args) {
         Karfa test = new Karfa();

@@ -9,18 +9,18 @@ Ef þú treystir þér til geturðu lesið gögnin úr skrá. Gættu þess bara 
 
 public class Matsedill {
     // FIELDS
-    protected ObservableList<Veiting> veitingaListi = FXCollections.observableArrayList();
+    protected ObservableList<Veiting> matsedillList = FXCollections.observableArrayList();
     // GETTERS & SETTERS
-    public ObservableList<Veiting> getVeitingaListi() {
-        return veitingaListi;
+    public ObservableList<Veiting> getMatsedillList() {
+        return matsedillList;
     }
-    public void setVeitingaListi(ObservableList<Veiting> veitingaListi) {
-        this.veitingaListi = veitingaListi;
+    public void setMatsedillList(ObservableList<Veiting> matsedillList) {
+        this.matsedillList = matsedillList;
     }
     // METHODS
     private void setjaGogn(){
-        this.veitingaListi.add(new Veiting("Epli", 199));
-        this.veitingaListi.add(new Veiting("Súkkulaði", 399));
-        this.veitingaListi.add(new Veiting("Skúffukaka", 599));
+        this.matsedillList.add(new Veiting("Epli", 199));
+        this.matsedillList.add(new Veiting("Súkkulaði", 399));
+        this.matsedillList.add(new Veiting("Skúffukaka", 599));
     }
 }
