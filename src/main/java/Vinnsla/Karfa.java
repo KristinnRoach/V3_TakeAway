@@ -1,9 +1,13 @@
 package Vinnsla;
 
+import javafx.beans.Observable;
 import javafx.beans.binding.NumberExpression;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ListChangeListener;
+
 
 /*
  Skrifaðu klasann Karfa sem erfir frá (extends) Matsedill og bættu við einni
@@ -18,18 +22,31 @@ sem gerir lítið prófunarforrit. Hér geturðu notað einfaldan debugger.
 public class Karfa extends Matsedill {
     // FIELDS
     private final IntegerProperty heildarVerd = new SimpleIntegerProperty();
+
     // CONSTRUCTOR
-    public Karfa(){
-        matsedillList.addListener(ListChangeListener<? super Veiting >) c -> {
-            while (c.next()) {
-                if (c.wasAdded()) {
-                    heildarverd.set(heildarVerd.get() + c.getAddedSubList().gert(0).getVerd());
-                } else if (c.wasRemoved()) {
-                    k.veiting.add(new Veiting("Brauð", 100));
-                }
-            }
-        };
+    public Karfa() {
+        this.matsedillList = FXCollections.observableArrayList();
+        matsedillList.addListener((ListChangeListener<Veiting>) change -> updateVerd());
+        updateVerd();
     }
+
+    // METHODS
+
+    private void removeItem(Veiting v){
+        if(matsedillList != null){
+            matsedillList.remove(v);
+            updateVerd();
+        }
+    }
+
+    private void updateVerd() {
+        int total = 0;
+        for(Veiting v : matsedillList){
+            total += v.getVerd();
+        }
+        heildarVerd.set(total);
+    }
+
     // GETTERS & SETTERS
     public ObservableList<Veiting> getVeiting() {
         return null;
@@ -39,10 +56,9 @@ public class Karfa extends Matsedill {
         return null;
     }
 }
-    // METHODS
 
-
-
+/*
+    // Tester
 
     public static void main(String[] args) {
         Karfa test = new Karfa();
@@ -55,3 +71,5 @@ public class Karfa extends Matsedill {
         System.out.println(rettur1.getVerd());
     }
 }
+
+ */

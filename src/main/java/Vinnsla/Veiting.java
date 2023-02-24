@@ -25,8 +25,12 @@ public class Veiting {
     public IntegerProperty verdProperty() {
         return verd;
     }
+
     public void setVerd(int verd) {
         this.verd.set(verd);
+    }
+    public void setRettur(String rettur) {
+        this.rettur.set(rettur);
     }
 
     public String getRettur() {
@@ -35,10 +39,6 @@ public class Veiting {
 
     public StringProperty retturProperty() {
         return rettur;
-    }
-
-    public void setRettur(String rettur) {
-        this.rettur.set(rettur);
     }
 
     // METHODS

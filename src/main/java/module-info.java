@@ -1,4 +1,4 @@
-module com.example.v3_takeaway {
+module com.example.V3_TakeAway {
     requires javafx.controls;
     requires javafx.fxml;
 

@@ -14,13 +14,23 @@ public class Matsedill {
     public ObservableList<Veiting> getMatsedillList() {
         return matsedillList;
     }
-    public void setMatsedillList(ObservableList<Veiting> matsedillList) {
+
+/*    public void setMatsedillList(ObservableList<Veiting> matsedillList) {
         this.matsedillList = matsedillList;
     }
+*/
+    // Smiður
+    public Matsedill() { setjaGogn(); }
     // METHODS
     private void setjaGogn(){
-        this.matsedillList.add(new Veiting("Epli", 199));
-        this.matsedillList.add(new Veiting("Súkkulaði", 399));
-        this.matsedillList.add(new Veiting("Skúffukaka", 599));
+        String[] veitingar = {"Epli", "Súkkulaði", "Skúffukaka", "Kaffi", "Te"};
+        int[] verdin = {199, 399, 599, 699, 499};
+
+        for(int i = 0; i < veitingar.length; i++){
+            Veiting v = new Veiting(veitingar[i], verdin[i]);
+            v.setRettur(veitingar[i]);
+            v.setVerd(verdin[i]);
+            matsedillList.add(v);
+        }
     }
 }
